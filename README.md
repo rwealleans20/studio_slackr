@@ -19,6 +19,9 @@ this command once.
 
 The second command serves the project locally.
 
+_Note: In order to be able to sign in on a cloud9 preview url your
+workspace.c9users.io url will need to be whitelisted by a teacher._
+
 Once you are able to view the slackr app go through the code to find the `TODO`s
 to complete your project and add cool features.
 
