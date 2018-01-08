@@ -1,0 +1,29 @@
+.Header {
+  background-color: #222;
+  height: 36px;
+  padding: 5px;
+  color: white;
+  font-size: 1.5em;
+  line-height: 36px;
+  display: flex;
+}
+
+.Header-photo {
+  height: 30px;
+  border-radius: 50%;
+}
+
+.Header-divider {
+  width: 100%;
+}
+
+.Header-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 36px;
+  vertical-align: top;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

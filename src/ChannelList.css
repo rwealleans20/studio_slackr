@@ -1,0 +1,16 @@
+.ChannelList {
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.ChannelButtons {
+  flex: 1;
+}
+
+.ChannelList-header {
+  font-weight: bold;
+}

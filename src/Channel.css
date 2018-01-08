@@ -1,0 +1,17 @@
+.Channel {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  flex: 1;
+  max-height: 100%;
+}
+
+.Channel-header {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.Channel-messages {
+  flex: 1;
+  overflow: scroll;
+}
