@@ -16,7 +16,7 @@ import React from 'react';
 import base from './rebase';
 import firebase from 'firebase/app';
 
-import header from './header';
+import Header from './header';
 
 // TODO move these css imports to their respective components once created.
 import './AddMessageInput.css';
@@ -49,9 +49,9 @@ export default class App extends React.Component {
   setSelectedChannel(channel) {
     this.setState({ selected: channel });
   }
-}
 
 
+render(){
 // TODO this seems like it could be a component too?
 var channelButtons = [];
 for (var channel in this.state.channels) {
@@ -128,7 +128,7 @@ var Channel = (
 
 return (
   <div className="App">
-        {Header}
+        <Header></Header>
         <div className="App-body">
           {ChannelList}
           {Channel}
@@ -136,6 +136,21 @@ return (
       </div>
 );
 }
+
+componentDidMount() {
+    this.ref = base.syncState("channels", {
+      context: this,
+      state: 'channels',
+      then: function() {
+        this.setState({ loading: false });
+        var channels = Object.keys(this.state.channels);
+        if(channels.length > 0) {
+          this.setState({ selected: channels[0] });
+        }
+      }
+    });
+
+  }
 
 // TODO these functions are only used by the Header
 handleSignIn() {

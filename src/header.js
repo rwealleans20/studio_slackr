@@ -7,7 +7,7 @@ import base from './rebase';
 import firebase from 'firebase/app';
 
 
-export default class App extends React.Component {
+export default class Header extends React.Component {
 
     constructor(props) {
         super(props);
@@ -22,6 +22,17 @@ export default class App extends React.Component {
         };
     }
 
+componentDidMount() {
+
+    // TODO this code is only used by the Header
+    base.initializedApp.auth().onAuthStateChanged(user => {
+      if(user) {
+        this.setState({ status: 'in', user: user });
+      } else {
+        this.setState({ status: 'out' });
+      }
+    });
+  }
 
     handleSignIn() {
         base.initializedApp.auth()
@@ -56,36 +67,13 @@ export default class App extends React.Component {
       </Button>);
         }
 
-        return {
+        return (
             <header className="Header">
             <img src={logo} className="Header-logo" alt="logo" />
           SLACKR
             <span className="Header-divider"></span>
           {userStatus}
             </header>
-        }
+        )
     }
 }
-
-base.initializedApp.auth().onAuthStateChanged(user => {
-    if (user) {
-        this.setState({ status: 'in', user: user });
-    }
-    else {
-        this.setState({ status: 'out' });
-    }
-});
-}
-
-componentDidMount() {
-        this.ref = base.syncState("channels", {
-            context: this,
-            state: 'channels',
-            then: function() {
-                this.setState({ loading: false });
-                var channels = Object.keys(this.state.channels);
-                if (channels.length > 0) {
-                    this.setState({ selected: channels[0] });
-                }
-            }
-        });
