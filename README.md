@@ -1,6 +1,7 @@
 # Studio Slackr
 
 Starter code for the studio slackr project.
+[Slides](https://docs.google.com/presentation/d/1tBWhnKm1LN7kzmtPl7AVYzh0EBuK0MIbqvUcrFbYQJg/edit)
 
 # Setup
 
