@@ -34,6 +34,7 @@ export default class App extends React.Component {
     // TODO this state object got massive! It needs to be broken apart along
     // with the subcomponents
     this.state = {
+      open: false,
       user: {},
       channels: {},
       loading: true,
